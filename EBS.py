@@ -1,5 +1,6 @@
 from random import randint, shuffle, choice
 from pprint import pprint
+import json
 
 # Four team members
 # In future, we will see how each member estimates and works in different ways
@@ -7,27 +8,33 @@ team_members = ["anna", "bill", "cass", "dave"]
 num_team_members = len(team_members)
 
 num_issues_total = 40
-num_issues_completed = 30
+num_issues_completed = 20
 
 issues = {}  # Keep issues in dict, so we can lookup with ID
 # Create some completed example issues
-for i in range(num_issues_completed):
-    issues[i] = {
-                 "estimates":{name: randint(1,10) for name in team_members},  # Record what each team member estimated this issue as
-                 "time_taken": randint(1,10),  # What was the time spent on this issue?
-                 "completed":True,
-                 "completed_by": team_members[randint(0, num_team_members-1)],  # Done by a random team member
-                }
-# Create some incomplete example issues
-for i in range(num_issues_completed, num_issues_total):
-    issues[i] = {
-                 "estimates":{name: randint(1,10) for name in team_members},
-                 "time_taken": 0,
-                 "completed":False,
-                 "completed_by": None,
-                }
+# for i in range(num_issues_completed):
+#     issues[i] = {
+#                  "estimates":{name: randint(1,10) for name in team_members},  # Record what each team member estimated this issue as
+#                  "time_taken": randint(1,10),  # What was the time spent on this issue?
+#                  "completed":True,
+#                  "completed_by": team_members[randint(0, num_team_members-1)],  # Done by a random team member
+#                 }
+# # Create some incomplete example issues
+# for i in range(num_issues_completed, num_issues_total):
+#     issues[i] = {
+#                  "estimates":{name: randint(1,10) for name in team_members},
+#                  "time_taken": 0,
+#                  "completed":False,
+#                  "completed_by": None,
+#                 }
 
 # pprint(issues)
+# with open("issues.json", 'w') as json_file:
+#     json_file.write(json.dumps(issues))
+
+
+with open("issues.json", 'r') as json_file:
+    issues = json.loads("".join(json_file.readlines()))
 
 # Extract all the estimates each team member gave for all issues.
 team_estimates = {team_member: [issue['estimates'][team_member]
@@ -49,7 +56,7 @@ todo_issue_ids = [_id for _id, issue in issues.iteritems() if not issue['complet
 done_issue_ids = [_id for _id, issue in issues.iteritems() if issue['completed']]
 
 # How many samples do we want? Using 100 allows us to easily convert into percentages
-num_simulations = 100
+num_simulations = 1000
 
 # A list of estimates for the whole project
 total_estimates = []
