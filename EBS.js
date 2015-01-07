@@ -4,9 +4,9 @@ function randInt(index, lower) {
 
 function createEstimateDict(members) {
     estimates = {}
-    for(var name in members) {
-        estimates[members[name]] = randInt(1, 10)
-    }
+    members.forEach(function(member){
+        estimates[member] = randInt(1, 10)
+    })
     return estimates
 }
 
@@ -37,7 +37,19 @@ for(var i=num_issues_completed; i<num_issues_total; i++) {
 }
 
 
+//Extract all the estimates each team member gave for all issues.
+team_estimates = {}
+team_members.forEach(function(member) {
+    // member = team_members[name]
+    console.log(member)
+    estimates = []
+    Object.keys(issues).forEach(function(id) {
+        issue = issues[id]
+        if(issue.completed) {
+            estimates.push(issue.estimates[member])
+        }
+    })
+    team_estimates[member] = estimates
+})
 
-
-console.log(issues)
-
+console.log(team_estimates)
