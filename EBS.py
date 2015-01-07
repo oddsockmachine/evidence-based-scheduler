@@ -7,7 +7,7 @@ team_members = ["anna", "bill", "cass", "dave"]
 num_team_members = len(team_members)
 
 num_issues_total = 40
-num_issues_completed = 20
+num_issues_completed = 30
 
 issues = {}  # Keep issues in dict, so we can lookup with ID
 # Create some completed example issues
@@ -69,6 +69,6 @@ for sim in range(num_simulations):
 
 total_estimates.sort()  # Sort, so estimates are in chronological order
 
-print total_estimates[25]  # 25% chance we will finish in this time
-print total_estimates[50]  # 50% chance we will finish in this time
-print total_estimates[75]  # 75% chance we will finish in this time
+print total_estimates[num_simulations/4]  # 25% chance we will finish in this time
+print total_estimates[num_simulations/2]  # 50% chance we will finish in this time
+print total_estimates[3*num_simulations/4]  # 75% chance we will finish in this time
