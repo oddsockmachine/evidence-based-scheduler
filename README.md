@@ -1,0 +1,1 @@
+The beginnings of a JIRA plugin/extension that will predict project completion dates using an "evidence based scheduling" approach
