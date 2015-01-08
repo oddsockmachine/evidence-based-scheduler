@@ -38,4 +38,4 @@
 "36": {"completed": false, "estimates": {"dave": 8, "bill": 2, "cass": 5, "anna": 5}, "time_taken": 0, "assigned_to": null},
 "37": {"completed": false, "estimates": {"dave": 7, "bill": 7, "cass": 8, "anna": 9}, "time_taken": 0, "assigned_to": null},
 "38": {"completed": false, "estimates": {"dave": 5, "bill": 8, "cass": 4, "anna": 1}, "time_taken": 0, "assigned_to": null},
-"39": {"completed": false, "estimates": {"dave": 3, "bill": 5, "cass": 6, "anna": 8}, "time_taken": 0, "assigned_to": "dave"}}
+"39": {"completed": false, "estimates": {"dave": 3, "bill": 5, "cass": 6, "anna": 8}, "time_taken": 0, "assigned_to": null}}
