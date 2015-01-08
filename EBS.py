@@ -65,7 +65,10 @@ for sim in range(num_simulations):
     shuffle(todo_issue_ids)  # Shuffle the issues so we sample them in a random order
     total = 0  # Amount of time estimated to complete project
     for issue_id in todo_issue_ids:
-        team_member = team_members[randint(0, num_team_members-1)]  # Pick a random team member to do this task.
+        if issues[issue_id]['assigned_to'] != None:
+            team_member = issues[issue_id]['assigned_to']
+        else:
+            team_member = team_members[randint(0, num_team_members-1)]  # Pick a random team member to do this task.
         # In future, we could assign tasks to members based on ability/skillset/time pressures
         random_estimate = issues[issue_id]['estimates'][team_member]  # Pick a random historic estimate the team member has made
         random_velocity = choice(team_velocities[team_member])  # Pick a random historic velocity this team member has achieved
